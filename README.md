@@ -1,6 +1,6 @@
 Dev Box
 =======
-This is the developer box to use for web application development/demo/experiment through Vagrant.
+This is the developer box to use for web application development/demo/experiments through Vagrant.
 
 Initialize
 ----------
@@ -12,11 +12,9 @@ Initialize
 ```
 sudo bash synced_folder/getting-started.sh
 ```
-4. Open the work directory with your favourite text editor and start coding! 
+Now, open the work directory with your favourite text editor and start coding! The directory is shared into the box as `~/synced_folder`. You will also have an empty `projects` folder, a `www` folder and a `settings` folder there with a default nginx setup. 
 
-You will now have an empty `projects` folder, a `www` folder and a `settings` folder with default nginx setup. 
-
-**Note**: You can use multiple boxes but for development purpose only one or two would be enough.
+**Note**: You can use multiple boxes but for development purposes only one or two would be enough.
 You can put all your web applications under the `projects` folder and share the web server, 
 database(s), cache server(s) and message queue(s). If you want to test deployment or want to use 
 a DevOps environment for development please consider using [Docker](https://www.docker.com/) containers 
@@ -26,8 +24,7 @@ with [Fig](http://www.fig.sh/).
 Quick Start
 -----------
 Put some static content under the `www` folder, and access `192.168.1.100` from your host machine.
-The `www` folder is a symlink to the `/usr/share/nginx/html` folder. You might consider building into 
-this folder's subfolders with your project build tools and organize them using an `index.html`.
+The `www` folder has a symlink at `/usr/share/nginx/html`. You might consider building into the `www` folder's subfolders with your project build tools and organize them using a site intro `index.html`.
 
 **Tip**: Proxy your Ajax api calls to your applications using the Nginx web server's `proxy_pass` and `uwsgi_pass` directives.
 
