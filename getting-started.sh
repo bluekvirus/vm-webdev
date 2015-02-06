@@ -30,3 +30,9 @@
   sudo rm -rf /usr/share/nginx/html
   sudo ln -s $WEBROOT /usr/share/nginx/html
 
+  #Make sure the projects folder exists
+  PROJECTS=~/synced_folder/projects
+  if [ ! -e $PROJECTS ]; then
+    sudo mkdir -p $PROJECTS
+  fi
+
