@@ -80,7 +80,7 @@ Vagrant.configure(2) do |config|
       sudo apt-get install -y build-essential git nodejs python-pip python3-pip \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server
       #Install global npm packages: brunch (build) mocha (BDD) 6to5 (es6) strongloop/express (api)
-      sudo npm -g install brunch mocha 6to5 strongloop express bower
+      sudo npm -g install brunch mocha 6to5 strongloop express bower nodemon
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       
   SHELL
