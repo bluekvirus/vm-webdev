@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.1.100"
+  config.vm.network "private_network", ip: "192.168.3.100"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -80,7 +80,7 @@ Vagrant.configure(2) do |config|
       sudo apt-get install -y build-essential git nodejs python-pip python3-pip \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server
       #Install global npm packages: brunch (build) mocha (BDD) 6to5 (es6) strongloop/express (api)
-      sudo npm -g install brunch mocha 6to5 strongloop express
+      sudo npm -g install brunch mocha 6to5 strongloop express bower
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       
   SHELL
