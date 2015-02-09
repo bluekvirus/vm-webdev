@@ -45,7 +45,7 @@ Goodies
 -------
 
 * Git
-* Nodejs (with Brunch, Mocha, 6to5, StrongLoop/Express)
+* Nodejs (with Bower Brunch, Mocha, 6to5, StrongLoop/Express)
 * Python 2/3 (with pip/pip3)
 * Supervisor
 * Nginx (default webroot under `/usr/share/nginx/html`) 
