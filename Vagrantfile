@@ -75,12 +75,13 @@ Vagrant.configure(2) do |config|
         sudo echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
       fi
 
-      #Install git, node, pip/pip3, supervisor, nginx, postgres, mongo, redis and rabbitmq
+      #Install git, node, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
       curl -sL https://deb.nodesource.com/setup | sudo bash
       sudo apt-get install -y build-essential git nodejs python-pip python3-pip \
-                              supervisor nginx postgresql mongodb redis-server rabbitmq-server
-      #Install global npm packages: brunch (build) mocha (BDD) 6to5 (es6) strongloop/express (api)
-      sudo npm -g install brunch mocha 6to5 strongloop express bower nodemon forever
+                              supervisor nginx postgresql mongodb redis-server rabbitmq-server \
+                              graphicsmagick
+      #Install global npm packages: brunch (build) mocha (BDD) babel (es6) strongloop/express (api)
+      sudo npm -g install brunch mocha chai babel strongloop express bower nodemon forever
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       
   SHELL
