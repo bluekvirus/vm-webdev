@@ -40,3 +40,7 @@
   sudo mkdir -p ~/.npm
   sudo chmod -R 777 ~/.npm
   
+  #[optional]Set default git user & email
+  #git config --global user.name "YOUR NAME"
+  #git config --global user.email "YOUR EMAIL ADDRESS"
+  
