@@ -37,5 +37,5 @@
   fi
 
   #Change .npm registry permission
-  sudo chmod -R 755 ~/.npm
+  sudo chmod -R 777 ~/.npm
   
