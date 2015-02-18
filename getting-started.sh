@@ -36,3 +36,6 @@
     sudo mkdir -p $PROJECTS
   fi
 
+  #Change .npm registry permission
+  sudo chmod -R 755 ~/.npm
+  
