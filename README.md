@@ -45,7 +45,7 @@ Goodies
 -------
 
 * Git
-* Nodejs (with Bower Brunch, Mocha, 6to5, StrongLoop/Express)
+* Nodejs (with Bower, Brunch, Mocha, Babel(6to5), StrongLoop/Express)
 * Python 2/3 (with pip/pip3)
 * Supervisor
 * Nginx (default webroot under `/usr/share/nginx/html`) 
@@ -53,6 +53,7 @@ Goodies
 * MongoDB
 * Redis
 * RabbitMQ
+* GraphicsMagick
 
 **Tip**: The services can listen to their default ports and without secured setups since only your 
 applications can access them.  
@@ -67,6 +68,4 @@ again, it is usually not needed.
 
 ToDo
 ----
-
-* Add default WebSocket proxy settings.
 * Merge db/cache/mq settings into settings.
