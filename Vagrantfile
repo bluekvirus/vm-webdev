@@ -80,9 +80,9 @@ Vagrant.configure(2) do |config|
       sudo apt-get install -y build-essential git nodejs python-pip python3-pip \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
                               graphicsmagick
-      #Install global npm packages: brunch (build) mocha (BDD) babel (es6) strongloop/express (api)
-      sudo npm -g install brunch mocha chai babel strongloop express bower nodemon forever
+      #Install global npm packages: brunch (build) babel (es6) strongloop/express (api)
+      sudo npm -g install brunch babel strongloop express bower http-server nodemon forever
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
-      
+      #For writing tests we recommend mocha + chai in BDD.
   SHELL
 end
