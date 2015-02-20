@@ -38,7 +38,7 @@
 
   #Change .npm registry permission
   sudo mkdir -p ~/.npm
-  sudo chmod -R 777 ~/.npm
+  sudo chown -R $(whoami) ~/.npm
   
   #[optional]Set default git user & email
   #git config --global user.name "YOUR NAME"
