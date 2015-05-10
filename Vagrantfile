@@ -82,8 +82,10 @@ Vagrant.configure(2) do |config|
                               graphicsmagick
       #Install global npm packages:
       sudo npm -g install babel bower gulp browser-sync express http-server nodemon forever
-      sudo chmod -R 777 /home/vagrant/.npm
+
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       #For writing tests we recommend mocha + chai in BDD.
+      
+      #Remember to run getting-started.sh after vagrant `ssh in` for the 1st time.
   SHELL
 end
