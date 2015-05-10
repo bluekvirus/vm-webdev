@@ -81,7 +81,7 @@ Vagrant.configure(2) do |config|
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
                               graphicsmagick
       #Install global npm packages:
-      sudo npm -g install babel yo bower grunt-cli gulp browser-sync strongloop express http-server nodemon forever
+      sudo npm -g install babel bower gulp browser-sync express http-server nodemon forever
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       #For writing tests we recommend mocha + chai in BDD.
   SHELL
