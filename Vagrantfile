@@ -76,16 +76,17 @@ Vagrant.configure(2) do |config|
       fi
 
       #Install git, node, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
+      #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
       curl -sL https://deb.nodesource.com/setup | sudo bash
       sudo apt-get install -y build-essential git nodejs python-pip python3-pip \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
                               graphicsmagick
       #Install global npm packages:
-      sudo npm -g install babel bower gulp browser-sync express http-server nodemon forever
+      sudo npm -g install bower babel gulp nodemon forever browser-sync http-server
 
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       #For writing tests we recommend mocha + chai in BDD.
       
-      #Remember to run getting-started.sh after vagrant `ssh in` for the 1st time.
+      #!!Remember to run getting-started.sh after vagrant `ssh in` for the 1st time!!
   SHELL
 end
