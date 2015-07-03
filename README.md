@@ -10,7 +10,8 @@ Initialize
 2. `vagrant up` to initialize and provision the box.
 3. `vagrant ssh` into the box and run
 ```
-sudo bash synced_folder/getting-started.sh
+chmod 744 synced_folder/getting-started.sh
+./synced_folder/getting-started.sh
 ```
 Now, open the work directory with your favourite text editor and start coding! The directory is shared into the box as `~/synced_folder`. You will also have an empty `projects` folder, a `www` folder and a `settings` folder there with a default nginx setup. 
 
