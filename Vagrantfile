@@ -80,7 +80,7 @@ Vagrant.configure(2) do |config|
       #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
       sudo apt-get install -y build-essential valgrind git nodejs python-pip python3-pip \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
-                              graphicsmagick
+                              graphicsmagick inxi
 
       #Install global npm packages:
       sudo npm -g install bower babel gulp nodemon forever browser-sync http-server
