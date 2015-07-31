@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
                               graphicsmagick inxi
 
       #Install global npm packages:
-      sudo npm -g install bower babel gulp nodemon forever browser-sync http-server
+      sudo npm -g install bower babel gulp forever http-server browser-sync
 
       #For python dev please use pip/pip3 install within pyvenv (virtualenv).
       #For writing tests we recommend mocha + chai in BDD.

@@ -26,7 +26,7 @@ Goodies
 -------
 
 * Git
-* Nodejs (with Bower, Gulp, Babel(6to5), Http-Server, Nodemon, Forever)
+* Nodejs (with Bower, Gulp, Babel(6to5), Http-Server, Forever, Browsersync)
 * Python 2/3 (with pip/pip3)
 * Supervisor
 * Nginx 
