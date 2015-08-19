@@ -78,7 +78,7 @@ Vagrant.configure(2) do |config|
       #Install git, c, node, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
       curl -sL https://deb.nodesource.com/setup | sudo bash
       #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
-      sudo apt-get install -y build-essential valgrind git nodejs python-pip python3-pip \
+      sudo apt-get install -y build-essential valgrind git nodejs python-pip python3-pip python-virtualenv \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
                               graphicsmagick inxi
 
