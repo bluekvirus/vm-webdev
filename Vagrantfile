@@ -75,10 +75,11 @@ Vagrant.configure(2) do |config|
         sudo echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
       fi
 
-      #Install git, c, node, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
+      #Install git, c, node, elixir, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
+      wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
       curl -sL https://deb.nodesource.com/setup | sudo bash
       #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
-      sudo apt-get install -y build-essential valgrind git nodejs python-pip python3-pip python-virtualenv \
+      sudo apt-get install -y build-essential valgrind git nodejs elixir python-pip python3-pip python-virtualenv \
                               supervisor nginx postgresql mongodb redis-server rabbitmq-server \
                               graphicsmagick inxi linux-tools-generic
 
