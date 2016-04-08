@@ -6,7 +6,7 @@
     sudo mkdir -p $SSL_CERTNKEY
     sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout $SSL_CERTNKEY/https.key -out $SSL_CERTNKEY/https.crt \
-        -subj "/C=US/ST=CA/L=Sunnyvale/O=Fortinet/OU=Web Application Team/CN=demo.wat-fortinet.com"
+        -subj "/C=US/ST=CA/L=Sunnyvale/O=Stagejs/OU=Web Application Team/CN=demo.wat-stagejs.com"
   fi
   sudo rm -rf /usr/share/https-cert
   sudo ln -s $SSL_CERTNKEY /usr/share/https-cert #Use this as path to certificates in https servers.
