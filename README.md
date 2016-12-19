@@ -10,15 +10,12 @@ Initialize
 1. `git clone` this repo to your work directory.
 2. `vagrant up` to initialize and provision the box.
 3. `vagrant ssh` into the box and run
-```
-chmod 744 synced_folder/getting-started.sh
-./synced_folder/getting-started.sh
-```
-Now, open the work directory with your favourite text editor and start coding! The directory is shared into the box as `~/synced_folder`. You will also have an empty `projects` folder, a `www` folder and a `settings` folder there with a default nginx setup. 
 
-**Tip**: Don't worry about `vagrant destroy` since the `~/synced_folder` in the virtual machine is mounted from `./` (your current working directory). Reconstructing the machine will not override your work in `projects`.
+Now, open your favourite text editor and start coding! The directory containing the `Vagrantfile` is shared into the vm at path `/vagrant`. Your `~/Projects` folder (if there is one and hopefully holding all the git repos) will be mapped into the vm at `~/Projects`. Also you can modify the content inside the `www` folder and the `settings` folder to change our default nginx setup in the vm (e.g add servers and static web files for different projects). 
 
-**Note**: You can use multiple boxes but for development purposes only one or two would be enough.You can put all your web applications under the `projects` folder and share the web server, database(s), cache server(s) and message queue(s). If you want to test deployment or want to use a DevOps environment for development please consider using [Docker](https://www.docker.com/) containers 
+**Tip**: Don't worry about `vagrant destroy`. Reconstructing the virtual machine will not override your changes made in `www`, `settings` and `~/Projects`.
+
+**Note**: You can use multiple boxes but for development purposes only one or two would be enough.You can put all your web applications under a `~/Projects` folder on the host machine and by default (see Vagrantfile `config.vm.synced_folder` setting) will be mapped to `~/Projects` (you will see this folder after `vagrant ssh` into the vm) to share the web server, database, cache server and message queues made available within the vm. If you want to test deployment or want to use a DevOps environment for development please consider using [Docker](https://www.docker.com/) containers 
 with [Fig](http://www.fig.sh/).
 
 
@@ -26,7 +23,7 @@ Goodies
 -------
 
 * Git
-* Nodejs (with Bower, Gulp, Babel(6to5), Http-Server, Forever, Browsersync)
+* Nodejs (with Bower, Gulp, Http-Server, Forever, Browsersync)
 * Python 2/3 (with pip/pip3)
 * Supervisor
 * Nginx 

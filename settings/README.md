@@ -4,7 +4,7 @@ By default these service daemons will be running after `vagrant up`. You can use
 
 
 ##Nginx (80, 443)
-This should already be configured and restarted by `./getting-started.sh`. Add more servers or change existing ones in `settings/nginx-config/conf.d`.
+This should already be configured and restarted. Add more servers or change existing ones in `settings/nginx-config/servers.d`.
 
 default bind 0.0.0.0
 

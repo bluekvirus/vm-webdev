@@ -1,5 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# 
+# @author Tim Lauv
+# @updated 2015.11.17
+# @updated 2016.12.18
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -38,7 +42,8 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./", "/home/vagrant/synced_folder"
+  # (./ with Vagrantfile will be mapped to /vagrant)
+  config.vm.synced_folder "~/Projects", "/home/vagrant/Projects"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -66,29 +71,12 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-      #Prep latest repos - Nginx
-      NGX_REPO_KEY=/tmp/nginx_signing.key
-      if [ ! -e $NGX_REPO_KEY ]; then
-        curl http://nginx.org/keys/nginx_signing.key > $NGX_REPO_KEY
-        sudo apt-key add $NGX_REPO_KEY
-        sudo echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
-        sudo echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
-      fi
-
-      #Install git, c, node, elixir, pip/pip3, supervisor, nginx, postgres, mongo, redis, rabbitmq and graphicsmagick
-      wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
-      curl -sL https://deb.nodesource.com/setup | sudo bash
-      #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
-      sudo apt-get install -y build-essential valgrind git nodejs elixir python-pip python3-pip python-virtualenv \
-                              supervisor nginx postgresql mongodb redis-server rabbitmq-server \
-                              graphicsmagick inxi linux-tools-generic
-
-      #Install global npm packages:
-      sudo npm -g install bower babel gulp forever http-server browser-sync
-
-      #For python dev please use pip/pip3 install within pyvenv (virtualenv).
-      #For writing tests we recommend mocha + chai in BDD.
       
-      #!!Remember to run getting-started.sh after vagrant `ssh in` for the 1st time!!
+      /vagrant/prepvm/step-0-provision.sh
+      /vagrant/prepvm/step-1-configure.sh
+
+      #For python dev please use pip/pip3 to install libs within each pyvenv (virtualenv).
+      #For writing tests we recommend BDD (e.g mocha + chai).
+      
   SHELL
 end
