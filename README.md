@@ -7,8 +7,8 @@ Initialize
 ----------
 
 0. Install Vagrant on your machine. [Instructions](https://docs.vagrantup.com/)
-1 `git clone` this repo to your work directory.
-2 `vagrant up` to initialize and provision the box. (supporting 2 providers)
+1. `git clone` this repo to your work directory.
+2. `vagrant up` to initialize and provision the box. (supporting 2 providers)
     ```
     vagrant up --provider=virtualbox
     vagrant up --provider=docker
@@ -18,7 +18,7 @@ Initialize
     VAGRANT_DEFAULT_PROVIDER=virtualbox (or docker)
     vagrant up
     ```
-3 `vagrant ssh` into the box and run
+3. `vagrant ssh` into the box and run
 
 Now, open your favourite text editor and start coding! The directory containing the `Vagrantfile` is shared into the vm at path `/vagrant`. Your `~/Projects` folder (if there is one and hopefully holding all the git repos) will be mapped into the vm at `~/Projects`. Also you can modify the content inside the `www` folder and the `settings` folder to change our default nginx setup in the vm (e.g add servers and static web files for different projects). 
 
