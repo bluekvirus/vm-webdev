@@ -2,6 +2,9 @@
 #
 # @author Tim Lauv
 # @updated 2015.11.17
+# @updated 2016.12.24 (using /etc/nginx/sites-enabled instead of /conf.d)
+
+echo "Configuring VM..."
 
 #Generate an SSL cert/key combo for HTTPs (change -subj value with your own attributes)
 SSL_CERTNKEY=/vagrant/settings/https-cert
@@ -18,11 +21,11 @@ sudo ln -s $SSL_CERTNKEY /usr/share/https-cert #Use this as path to certificates
 NGINX_CFG=/vagrant/settings/nginx-config
 if [ ! -e $NGINX_CFG/servers.d ]; then
   sudo mkdir -p $NGINX_CFG
-  sudo mv /etc/nginx/conf.d $NGINX_CFG/servers.d
+  sudo mv /etc/nginx/sites-enabled $NGINX_CFG/servers.d
   sudo chmod -R 777 $NGINX_CFG
 fi
-sudo rm -rf /etc/nginx/conf.d
-sudo ln -s $NGINX_CFG/servers.d /etc/nginx/conf.d
+sudo rm -rf /etc/nginx/sites-enabled
+sudo ln -s $NGINX_CFG/servers.d /etc/nginx/sites-enabled
 sudo service nginx restart
 
 #Expose default web root from /usr/share/nginx/html
@@ -41,3 +44,4 @@ sudo chown -R $(whoami) ~/.npm
 #git config --global user.name "YOUR NAME"
 #git config --global user.email "YOUR EMAIL ADDRESS"
   
+echo "VM configured, use 'vagrant ssh' to login."

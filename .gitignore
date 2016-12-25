@@ -2,3 +2,4 @@
 /www
 .vagrant
 .DS_Store
+*.log

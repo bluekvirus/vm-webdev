@@ -7,9 +7,18 @@ Initialize
 ----------
 
 0. Install Vagrant on your machine. [Instructions](https://docs.vagrantup.com/)
-1. `git clone` this repo to your work directory.
-2. `vagrant up` to initialize and provision the box.
-3. `vagrant ssh` into the box and run
+1 `git clone` this repo to your work directory.
+2 `vagrant up` to initialize and provision the box. (supporting 2 providers)
+    ```
+    vagrant up --provider=virtualbox
+    vagrant up --provider=docker
+
+    //or
+
+    VAGRANT_DEFAULT_PROVIDER=virtualbox (or docker)
+    vagrant up
+    ```
+3 `vagrant ssh` into the box and run
 
 Now, open your favourite text editor and start coding! The directory containing the `Vagrantfile` is shared into the vm at path `/vagrant`. Your `~/Projects` folder (if there is one and hopefully holding all the git repos) will be mapped into the vm at `~/Projects`. Also you can modify the content inside the `www` folder and the `settings` folder to change our default nginx setup in the vm (e.g add servers and static web files for different projects). 
 
@@ -23,14 +32,16 @@ Goodies
 -------
 
 * Git
-* Nodejs (with Bower, Gulp, Http-Server, Forever, Browsersync)
-* Python 2/3 (with pip/pip3)
+* Nodejs (with Bower, Gulp, Less, Http-Server, Forever)
+* Python 2/3 (with pip/pip3 and virtualenv)
+* Go
 * Supervisor
 * Nginx 
 * PostgreSQL
 * MongoDB
 * Redis
 * RabbitMQ
+* Celery
 * GraphicsMagick
 
 **Tip**: The services are listening to their default ports and without secured setups since only your applications can access them. 
@@ -52,14 +63,13 @@ Suggested Workflow
 ------------------
 
 1. `vagrant ssh` into the box and run/stop your applications and services.
-2. Scaffold and code outside the box; Build and test inside the box.
-3. Change the `Vagrantfile` configure to include more port mappings for demoing purposes.
-4. Put/Change service configure files inside `settings` and symlink them back into service daemons.
+2. Scaffold and code/test outside the box (on host `~/Projects/<your project>`); Build and run inside the box (on vm after `vagrant ssh`).
+3. Change the `Vagrantfile` configure to include more vm-to-localhost port forwardings for demoing purposes.
+4. Put/Change service configure files inside `settings` and reload services inside the vm through `sudo systemctl restart/reload <service>`.
 
 
 Customize
 ---------
-You can run `vagrant reload` after changing the networking and folder sharing settings in `Vagrantfile` to 
-apply the changes to the box.
+You can run `vagrant reload` after changing the networking and folder sharing settings in `Vagrantfile` to apply the changes to the box.
 
 **Note**: Although it wouldn't hurt to run the `vagrant provision` command to execute the provision script again, it is usually not needed.

@@ -1,9 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # 
+# Upgrade to vagrant 1.9+ to support VirtualBox v5.0+ (https://www.vagrantup.com/downloads.html)
+# 
+# Supported provider: virtualbox, docker
+# 
 # @author Tim Lauv
 # @updated 2015.11.17
-# @updated 2016.12.18
+# @updated 2016.12.24 (use ubuntu 16.04 LTS)
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -15,8 +19,8 @@ Vagrant.configure(2) do |config|
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "phusion/ubuntu-14.04-amd64"
+  # boxes at https://atlas.hashicorp.com/search. (except --provider=Docker)
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -26,6 +30,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
+  # (already have guest: 22 --> host: 2222 for sshd)
   config.vm.network "forwarded_port", guest: 443, host: 8443
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
@@ -43,12 +48,12 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # (./ with Vagrantfile will be mapped to /vagrant)
-  config.vm.synced_folder "~/Projects", "/home/vagrant/Projects"
+  config.vm.synced_folder "~/Projects", "/home/ubuntu/Projects"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
+  
+  # VirtualBox: 
   # config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
@@ -59,6 +64,11 @@ Vagrant.configure(2) do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
+  
+  # Docker:
+  config.vm.provider "docker" do |d|
+    d.image = "ubuntu:xenial"
+  end
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
