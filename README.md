@@ -6,7 +6,7 @@ This is the developer box to use for web application development/demo/experiment
 Initialize
 ----------
 
-0. Install Vagrant v1.9+ on your machine. [Instructions](https://docs.vagrantup.com/)
+0. Install Vagrant v1.9+ on your machine. [Setup Instructions](https://docs.vagrantup.com/)
 1. `git clone` this repo to your work directory.
 2. `vagrant up` to initialize and provision the box. (supporting 2 providers)
     ```
@@ -25,7 +25,7 @@ Now, open your favourite text editor and start coding! The directory containing 
 **Tip**: Don't worry about `vagrant destroy`. Reconstructing the virtual machine will not override your changes made in `www`, `settings` and `~/Projects`.
 
 **Note**: You can use multiple boxes but for development purposes only one or two would be enough.You can put all your web applications under a `~/Projects` folder on the host machine and by default (see Vagrantfile `config.vm.synced_folder` setting) will be mapped to `~/Projects` (you will see this folder after `vagrant ssh` into the vm) to share the web server, database, cache server and message queues made available within the vm. If you want to test deployment or want to use a DevOps environment for development please consider using [Docker](https://www.docker.com/) containers 
-with [Fig](http://www.fig.sh/).
+with [Fig](http://www.fig.sh/)(Compose).
 
 
 Goodies
