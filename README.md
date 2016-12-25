@@ -6,7 +6,7 @@ This is the developer box to use for web application development/demo/experiment
 Initialize
 ----------
 
-0. Install Vagrant on your machine. [Instructions](https://docs.vagrantup.com/)
+0. Install Vagrant v1.9+ on your machine. [Instructions](https://docs.vagrantup.com/)
 1. `git clone` this repo to your work directory.
 2. `vagrant up` to initialize and provision the box. (supporting 2 providers)
     ```
