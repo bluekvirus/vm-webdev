@@ -31,7 +31,7 @@ sudo apt-get install -y build-essential git golang nodejs elixir python-pip pyth
 #Install global pip packages:
 sudo pip install --upgrade pip
 sudo pip install virtualenv
-sudo pip install Celery
+sudo pip install celery
 
 #Install global npm packages:
 sudo npm -g install less bower gulp forever http-server 
