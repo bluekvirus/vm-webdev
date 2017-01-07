@@ -25,7 +25,7 @@ wget https://packages.erlang-solutions.com/$ERLANG_PACK && sudo dpkg -i $ERLANG_
 curl -sL https://deb.nodesource.com/setup_4.x | sudo bash
 #Can use https://deb.nodesource.com/setup_<major>.<minor> instead for latest nodejs & npm.
 sudo apt-get install -y build-essential git golang nodejs elixir python-pip python3-pip \
-                        supervisor nginx postgresql mongodb redis-server rabbitmq-server \
+                        supervisor nginx postgresql libpq-dev mongodb redis-server rabbitmq-server \
                         graphicsmagick valgrind inxi linux-tools-generic inotify-tools fcgiwrap apache2-utils
 
 #Install global pip packages:
