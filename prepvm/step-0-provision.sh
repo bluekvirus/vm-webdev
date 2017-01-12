@@ -37,6 +37,6 @@ sudo pip install celery
 sudo npm -g install less bower gulp forever http-server 
 
 #clean up
-rm $ERLANG_PACK 
+sudo rm $ERLANG_PACK 
 
 echo "VM provisioned."
