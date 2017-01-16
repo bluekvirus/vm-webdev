@@ -5,6 +5,7 @@
 # @updated 2016.12.24 (using /etc/nginx/sites-enabled instead of /conf.d)
 
 echo "Configuring VM..."
+USER=ubuntu
 
 #Generate an SSL cert/key combo for HTTPs (change -subj value with your own attributes)
 SSL_CERTNKEY=/vagrant/settings/https-cert
@@ -38,7 +39,7 @@ sudo rm -rf /usr/share/nginx/html
 sudo ln -s $WEBROOT /usr/share/nginx/html
 
 #Expose default git server root from ~/Projects/shared/
-GITROOT=~/Projects/shared
+GITROOT=/home/$USER/Projects/shared
 if [ ! -e $GITROOT ]; then
 	sudo mkdir $GITROOT
 	sudo chgrp -R www-data $GITROOT
@@ -46,8 +47,8 @@ if [ ! -e $GITROOT ]; then
 fi
 
 #Change .npm registry permission
-sudo mkdir -p ~/.npm
-sudo chown -R $(whoami) ~/.npm
+sudo mkdir -p /home/$USER/.npm
+sudo chown -R $USER /home/$USER/.npm
 
 #[optional]Set default git user & email
 #git config --global user.name "YOUR NAME"
