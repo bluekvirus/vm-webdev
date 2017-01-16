@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 # 
 # Upgrade to vagrant 1.9+ to support VirtualBox v5.0+ (https://www.vagrantup.com/downloads.html)
-# 
+#
 # Supported provider: virtualbox, docker
 # 
 # @author Tim Lauv
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search. (except --provider=Docker)
-  config.vm.box = "ubuntu/xenial64"
+  # config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -36,6 +36,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
+  # (you need to install VirtualBox as administrator to use host-only networks)
   config.vm.network "private_network", ip: "192.168.3.100"
 
   # Create a public network, which generally matched to bridged network.
@@ -47,26 +48,31 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # (./ with Vagrantfile will be mapped to /vagrant)
+  # (./ folder containing Vagrantfile will be mapped to /vagrant)
+  # If you don't have ~/Projects folder you might need to mkdir it.
   config.vm.synced_folder "~/Projects", "/home/ubuntu/Projects"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   
-  # VirtualBox: 
-  # config.vm.provider "virtualbox" do |vb|
+  # VirtualBox: (best choice of provider, turn Hyper-V on in BIOS, off in Windows)
+  config.vm.provider "virtualbox" do |vb, override|
+    override.vm.box = "ubuntu/xenial64"
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
-  # end
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
   
-  # Docker:
-  config.vm.provider "docker" do |d|
+  # Docker: (recommended on Linux/LXC only host)
+  # Not that this would require a HOST VM on Windows and Mac OSX 
+  # which in turn runs on VirtualBox so what's the point huh? Just use VirtualBox!
+  config.vm.provider "docker" do |d, override|
+  #  override.vm.box = "hashicorp/boot2docker" (this is the default HOST VM needed)
     d.image = "ubuntu:xenial"
   end
 
