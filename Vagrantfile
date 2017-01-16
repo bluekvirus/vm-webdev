@@ -96,7 +96,12 @@ Vagrant.configure(2) do |config|
       /vagrant/prepvm/step-0-provision.sh
       /vagrant/prepvm/step-1-configure.sh
 
-      #For python dev please use pip/pip3 to install libs within each pyvenv (virtualenv).
+      #For python dev please use pip/pip3 to install libs within each venv or virtualenv.
+      # python3 -m venv --copies .venv (not working atm on Windows 10 Pro host)
+      # virtualenv -p python3 --always-copy .venv
+      #Note that simbolic links will fail during env making if host is Windows. 
+      #(thus the use of --always-copy and --copies)
+
       #For writing tests we recommend BDD (e.g mocha + chai).
       
   SHELL
