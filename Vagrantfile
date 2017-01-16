@@ -70,7 +70,8 @@ Vagrant.configure(2) do |config|
   
   # Docker: (recommended on Linux/LXC only host)
   # Not that this would require a HOST VM on Windows and Mac OSX 
-  # which in turn runs on VirtualBox so what's the point huh? Just use VirtualBox!
+  # which in turn runs on VirtualBox so (what's the point huh?) 
+  # just use VirtualBox directly!
   config.vm.provider "docker" do |d, override|
   #  override.vm.box = "hashicorp/boot2docker" (this is the default HOST VM needed)
     d.image = "ubuntu:xenial"
@@ -87,7 +88,11 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-      
+
+      #If you see /bin/bash^M: bad error during provision, set your git config like this:
+      # git config --global core.autocrlf input
+      #(this is because Windows has changed the newline into a DOS CR instead of Linux LF during git clone)
+
       /vagrant/prepvm/step-0-provision.sh
       /vagrant/prepvm/step-1-configure.sh
 
