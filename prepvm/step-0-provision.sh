@@ -32,6 +32,7 @@ sudo apt-get install -y build-essential git golang nodejs elixir python-pip pyth
 sudo pip install --upgrade pip
 sudo pip install virtualenv
 sudo pip install celery
+sudo pip install zest.releaser[recommended]
 
 #Install global npm packages:
 sudo npm -g install less bower gulp forever http-server 
