@@ -27,7 +27,8 @@ if [ ! -e $NGINX_CFG/servers.d ]; then
 fi
 sudo rm -rf /etc/nginx/sites-enabled
 sudo ln -s $NGINX_CFG/servers.d /etc/nginx/sites-enabled
-sudo ln -s $NGINX_CFG/.htpasswd /etc/nginx/.htpasswd
+if [ ! -e /etc/nginx/.htpasswd ]; then
+  sudo cp $NGINX_CFG/.htpasswd /etc/nginx/.htpasswd
 sudo service nginx restart
 
 #Expose default web root from /usr/share/nginx/html
