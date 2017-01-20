@@ -2,7 +2,7 @@
 #
 # Add a new developer to git-server (over https)
 # 
-# Tell developer to send theirs, use: htpasswd -n <username>
+# Tell developer to send his/hers, use: htpasswd -n <username>
 #
 # @author Tim Lauv
 
