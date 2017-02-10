@@ -33,6 +33,8 @@ Vagrant.configure(2) do |config|
   # (already have guest: 22 --> host: 2222 for sshd)
   config.vm.network "forwarded_port", guest: 443, host: 8443
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 5000, host: 5000 # nodejs (express)
+  config.vm.network "forwarded_port", guest: 8000, host: 8000 # python (django)
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -105,4 +107,10 @@ Vagrant.configure(2) do |config|
       #For writing tests we recommend BDD (e.g mocha + chai).
       
   SHELL
+
+  #always run upon reload
+  config.vm.provision "shell", run: 'always', inline: <<-SHELL
+      sudo service nginx restart
+  SHELL
+
 end
