@@ -46,7 +46,7 @@ Goodies
 
 **Tip**: The services are listening to their default ports and without secured setups since only your applications can access them. 
 
-###Default Settings
+#### Default Settings
 See [settings](./settings/README.md) for default settings of Nginx, PostgreSQL, MongoDB, Redis and RabbitMQ.
 
 
