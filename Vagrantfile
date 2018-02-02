@@ -52,7 +52,14 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   # (./ folder containing Vagrantfile will be mapped to /vagrant)
   # If you don't have ~/Projects folder you might need to mkdir it.
-  config.vm.synced_folder "~/Projects", "/home/ubuntu/Projects"
+  #
+  # 2/1/2018
+  # Added configuration for file permissions
+  config.vm.synced_folder "~/Projects", "/home/ubuntu/Projects",
+    owner: "vagrant",
+    group: "www-data",
+    mount_options: ["dmode=775,fmode=664"]
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
