@@ -5,7 +5,7 @@
 # @author Tim Lauv
 
 USER=ubuntu
-PROJ=/home/$USER/Project/shared/"$@"
+PROJ=/home/$USER/Projects/shared/"$@"
 sudo mkdir $PROJ
 cd $PROJ
 git init --bare --shared
